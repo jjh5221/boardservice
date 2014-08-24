@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="Simplicity Itself" />
+
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet" />
+<style type="text/css">
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+.commentWriter {
+	width: 100px;
+}
+.commentContent {
+	width: 600px;
+}
+</style>
+<link href="/resources/css/bootstrap-responsive.min.css"
+	rel="stylesheet" />
+	
+	<title>Read Board</title>
+</head>
+<body>
+	<div>
+		<div>
+			<h1>Read Page</h1>
+		</div>
+		<div class="table table-striped">
+			<div th:each="item : ${boardItems}">
+				<div class="highlight" th:text="${item.title}"></div>
+				<div class="highlight" th:text="${item.writer}"></div>
+				<pre style="word-break:break-all;">
+					<div th:text="${item.content}"></div>
+				</pre>
+				<span>
+					<a class="btn btn-primary btn-small" th:href="@{/}">List</a> 
+   		          	<a class="btn btn-primary btn-small" th:href="@{/board/update/__${item.id}__}">Update</a>  
+   		          	<a class="btn btn-primary btn-small" th:href="@{/board/delete/__${item.id}__}">Delete</a>  
+				</span>
+		
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th width="50">작성자</th>
+							<th width="500">내용</th>
+							<th width="100">작성일자</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="comment : ${commentItems}">
+							<td th:text="${comment.writer}"></td>
+							<td th:text="${comment.content}"></td>
+							<td th:text="${comment.dateCreated}"></td>
+						</tr>
+					</tbody>
+				</table>
+				<form th:action="@{/board/read/__${item.id}__}" method="POST">
+					<input class="commentWriter" type="text" name="writer" value="User"/>
+					<input class="commentContent" type="text" name="content" onclick="this.value='';" value="내용을 입력하세요"/> 
+					<input class="btn btn-primary btn-small" type="submit" value="Submit" />
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

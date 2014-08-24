@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="Simplicity Itself" />
+
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet" />
+<style type="text/css">
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.title {
+	width: 600px;
+}
+
+textarea {
+	width: 600;
+	min-width: 600px;
+	max-widht: 600px;
+	height: 400px;
+	min-height: 400px;
+	max-height: 400px;
+}
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+</style>
+<link href="/resources/css/bootstrap-responsive.min.css"
+	rel="stylesheet" />
+
+<title>Write</title>
+</head>
+<body>
+
+	<h1>Write Page</h1>
+
+	<form action="/board/write" method="POST">
+			<input class="title" type="text" name="title" onclick="this.value='';" value="제목을 입력하세요"/> 
+		<div>
+			<input name="writer" type="text" value="User" /> 
+		</div>
+		<div>
+			<textarea class="content" name="content"/> 
+		</div>
+		<input class="btn btn-primary btn-small" type="submit" value="Submit" />
+		<a class="btn btn-primary btn-small" href="/cencel">Cencel</a>
+	</form>
+	
+</body>
+</html>

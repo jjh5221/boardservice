@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="Simplicity Itself" />
+
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet" />
+<style type="text/css">
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+</style>
+<link href="/resources/css/bootstrap-responsive.min.css"
+	rel="stylesheet" />
+	
+	<title>Hello Board</title>
+</head>
+<body>
+
+	<div>
+		<div>
+			<h1>Hellow Board</h1>
+		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th width="20">글번호</th>
+					<th width="280">제목</th>
+					<th width="50">작성자</th>
+					<th width="150">작성일</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item : ${boardItems}">
+					<td th:text="${item.id}"></td>
+					<td><a th:text="${item.title}" th:href="@{/board/read/__${item.id}__}"></a></td>
+					<td th:text="${item.writer}"></td>
+					<td th:text="${item.dateCreated}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<a class="btn btn-primary btn-small" th:href="@{/board/write}">Write</a>
+	</div>
+</body>
+</html>

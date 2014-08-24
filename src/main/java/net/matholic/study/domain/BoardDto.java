@@ -1,0 +1,15 @@
+package net.matholic.study.domain;
+
+import java.util.Date;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
+public class BoardDto {
+	private Long id;
+	private String title;
+	private String writer;
+	private String content;
+	private Date dateCreated;
+}
